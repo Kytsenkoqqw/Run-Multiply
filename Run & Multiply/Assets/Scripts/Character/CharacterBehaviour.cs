@@ -24,6 +24,18 @@ public class CharacterBehaviour : MonoBehaviour
         SideMove();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<CharacterMultiply>())
+        {
+            CharacterMultiply characterMultiply = other.GetComponent<CharacterMultiply>();
+            if (characterMultiply != null)
+            {
+                characterMultiply.ApplyOperation();
+            }
+        }
+    }
+
     private void MoveCharacter()
     {
         _rigidbodyCharacter.AddForce(Vector3.forward * _force);
