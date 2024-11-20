@@ -1,44 +1,65 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Plane = UnityEngine.Plane;
+using Vector3 = UnityEngine.Vector3;
 
 public class CharacterBehaviour : MonoBehaviour
 {
-    [SerializeField] private float _force = 2f;
-    [SerializeField] private float _maxSpeed = 5f;
-    
-    [SerializeField] private float _sideSpeed = 2f;
-    
-    private Rigidbody _rigidbodyCharacter;
-    
-    
+    public bool _isMoveByTouch, _isGameState;
+    private Vector3 _mouseStartPosition, _playerStartPosition;
+    public float MoveSpeed;
+    private Camera _camera;
+
     private void Start()
     {
-        _rigidbodyCharacter = GetComponent<Rigidbody>();
+        _camera = Camera.main;
     }
 
     private void Update()
     {
-        MoveCharacter();
-        SideMove();
+        MoveToPlayer();
     }
 
-    private void MoveCharacter()
+    private void MoveToPlayer()
     {
-        _rigidbodyCharacter.AddForce(Vector3.forward * _force);
-        
-        if (_rigidbodyCharacter.velocity.magnitude > _maxSpeed)
+        if (Input.GetMouseButtonDown(0) && _isGameState)
         {
-            _rigidbodyCharacter.velocity = _rigidbodyCharacter.velocity.normalized * _maxSpeed;
+            _isMoveByTouch = true;
+
+            var plane = new Plane(Vector3.up, 0f);
+
+            var ray = _camera.ScreenPointToRay(Input.mousePosition);
+
+            if (plane.Raycast(ray, out var distance))
+            {
+                _mouseStartPosition = ray.GetPoint(distance + 1f);
+                _playerStartPosition = transform.position;
+            }
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            _isMoveByTouch = false;
+        }
+
+        if (_isMoveByTouch)
+        {
+            var plane = new Plane(Vector3.up, 0f);
+            var ray = _camera.ScreenPointToRay(Input.mousePosition);
+
+            if (plane.Raycast(ray, out var distance))
+            {
+                var mousePos = ray.GetPoint(distance + 1f);
+                var move = mousePos - _mouseStartPosition;
+                var control = _playerStartPosition + move;
+                
+                transform.position = new Vector3(Mathf.Lerp(transform.position.x, control.x, Time.deltaTime * MoveSpeed ), transform.position.y, transform.position.z);
+            }
         }
     }
 
-    private void SideMove()
-    {
-        
-        float sideSpeed = Input.GetAxis("Horizontal") * _sideSpeed * Time.deltaTime;
-        transform.Translate(sideSpeed,0,0);
 
-    }
 }
