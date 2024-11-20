@@ -26,7 +26,7 @@ public class PlayerManager : MonoBehaviour
 
     private void FormatStickman()
     {
-        for (int i = 0; i < PlayerTransform.childCount; i++)
+        for (int i = 1; i < PlayerTransform.childCount; i++)
         {
             var x = DistanceFactor * Mathf.Sqrt(i) * Mathf.Cos(i * Radius);
             var z = DistanceFactor * Mathf.Sqrt(i) * Mathf.Sin(i * Radius);

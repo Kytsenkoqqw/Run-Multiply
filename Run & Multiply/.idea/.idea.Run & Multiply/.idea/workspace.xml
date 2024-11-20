@@ -38,6 +38,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Road/RoadMove.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/CharacterMultiply.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gate/GateManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -50,8 +51,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/CharacterMultily.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/CharacterMultiply.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gate/GateManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/CharacterBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Road/RoadMove.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" />
       </list>
     </option>
   </component>
@@ -100,7 +102,7 @@
       <workItem from="1731595600936" duration="3937000" />
       <workItem from="1731600485223" duration="1789000" />
       <workItem from="1731944493671" duration="84000" />
-      <workItem from="1732107161578" duration="6597000" />
+      <workItem from="1732107161578" duration="7337000" />
     </task>
     <servers />
   </component>
