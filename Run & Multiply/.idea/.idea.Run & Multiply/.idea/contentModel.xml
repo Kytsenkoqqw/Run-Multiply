@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\GRA\Run-Multiply\Run &amp; Multiply" t="IncludeRecursive">
+    <e p="C:\Users\Admin\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Admin\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Run &amp; Multiply.-936110513.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Admin\Documents\GitHub\Run-Multiply\Run &amp; Multiply" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -12,6 +14,12 @@
           <e p="Character" t="Include">
             <e p="CharacterBehaviour.cs" t="Include" />
             <e p="CharacterMultiply.cs" t="Include" />
+          </e>
+          <e p="Gate" t="Include">
+            <e p="GateManager.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
+            <e p="PlayerManager.cs" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">
@@ -60,7 +68,5 @@
       <e p="Run &amp; Multiply.sln" t="IncludeFlat" />
       <e p="Temp\Bin" t="ExcludeRecursive" />
     </e>
-    <e p="C:\Users\1\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\1\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Run &amp; Multiply.-838155931.00" t="ExcludeRecursive" />
   </component>
 </project>
