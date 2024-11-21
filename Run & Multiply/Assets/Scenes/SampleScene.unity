@@ -1366,6 +1366,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2690118151319923164, guid: 0b6d27c9b4ca492438957c85786d6da5,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2690118151319923164, guid: 0b6d27c9b4ca492438957c85786d6da5,
+        type: 3}
       propertyPath: _roadSpeed
       value: 6
       objectReference: {fileID: 0}

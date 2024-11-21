@@ -152,6 +152,7 @@ MonoBehaviour:
   _isMoveByTouch: 0
   _isGameState: 1
   MoveSpeed: 3
+  _playerManager: {fileID: 5752758157255652978}
 --- !u!114 &5752758157255652978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerTransform: {fileID: 0}
+  _numberOfStickmans: 0
   _counterText: {fileID: 3251401868414489553}
   _stickman: {fileID: 60926425580469565, guid: c96c7490f41a1f1429464081df7408c7, type: 3}
   DistanceFactor: 0.5

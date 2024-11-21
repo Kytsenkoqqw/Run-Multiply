@@ -12,6 +12,8 @@ public class CharacterBehaviour : MonoBehaviour
     private Vector3 _mouseStartPosition, _playerStartPosition;
     public float MoveSpeed;
     private Camera _camera;
+    [SerializeField] private PlayerManager _playerManager;
+    
 
     private void Start()
     {
@@ -55,7 +57,16 @@ public class CharacterBehaviour : MonoBehaviour
                 var mousePos = ray.GetPoint(distance + 1f);
                 var move = mousePos - _mouseStartPosition;
                 var control = _playerStartPosition + move;
-                
+
+                if (_playerManager._numberOfStickmans > 50)
+                {
+                    control.x = Mathf.Clamp(control.x, -5f, 5f);
+                }
+                else
+                {
+                    control.x = Mathf.Clamp(control.x, -7f, 7f);
+                }
+
                 transform.position = new Vector3(Mathf.Lerp(transform.position.x, control.x, Time.deltaTime * MoveSpeed ), transform.position.y, transform.position.z);
             }
         }

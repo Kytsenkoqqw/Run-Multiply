@@ -7,21 +7,17 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public Transform PlayerTransform;
-    private int _numberOfStickmans;
+    public int _numberOfStickmans;
     [SerializeField] private TextMeshPro _counterText;
     [SerializeField] private GameObject _stickman;
     [Range(0, 1f)][SerializeField] private float  DistanceFactor, Radius;
-
     
-    
-    
-
-
     private void Start()
     {
         PlayerTransform = transform;
         _numberOfStickmans = transform.childCount - 1;
         _counterText.text = _numberOfStickmans.ToString();
+        MakeStickman(90);
     }
 
     private void FormatStickman()
