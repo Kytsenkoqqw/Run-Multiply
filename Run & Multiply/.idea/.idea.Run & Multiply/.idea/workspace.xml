@@ -52,8 +52,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/CharacterMultiply.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gate/GateManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Road/RoadMove.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/CharacterBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" />
       </list>
     </option>
   </component>
@@ -105,7 +105,8 @@
       <workItem from="1731944493671" duration="84000" />
       <workItem from="1732107161578" duration="8007000" />
       <workItem from="1732206496959" duration="130000" />
-      <workItem from="1732206653494" duration="728000" />
+      <workItem from="1732206653494" duration="2590000" />
+      <workItem from="1732367080612" duration="946000" />
     </task>
     <servers />
   </component>

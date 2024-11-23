@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
         PlayerTransform = transform;
         _numberOfStickmans = transform.childCount - 1;
         _counterText.text = _numberOfStickmans.ToString();
-        MakeStickman(90);
+      //  MakeStickman(90);
     }
 
     private void FormatStickman()
