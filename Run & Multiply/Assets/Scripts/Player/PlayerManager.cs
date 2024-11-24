@@ -49,8 +49,9 @@ public class PlayerManager : MonoBehaviour
     {
         if (other.CompareTag("gate"))
         {
-            other.transform.parent.GetChild(0).GetComponent<BoxCollider>().enabled = false;
-            other.transform.parent.GetChild(1).GetComponent<BoxCollider>().enabled = false;
+            Debug.Log("Spawn");
+            other.transform.parent.GetChild(0).GetComponent<CapsuleCollider>().enabled = false;
+            other.transform.parent.GetChild(1).GetComponent<CapsuleCollider>().enabled = false;
 
             var gateManager = other.GetComponent<GateManager>();
 

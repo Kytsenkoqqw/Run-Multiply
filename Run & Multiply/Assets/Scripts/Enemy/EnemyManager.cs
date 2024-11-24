@@ -21,5 +21,24 @@ public class EnemyManager : MonoBehaviour
         }
 
         _counterText.text = (transform.childCount - 1).ToString();
+        
+        FormatStickman();
+    }
+    
+    private void FormatStickman()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            var x = _distanceFactor * Mathf.Sqrt(i) * Mathf.Cos(i * _radius);
+            var z = _distanceFactor * Mathf.Sqrt(i) * Mathf.Sin(i * _radius);
+         
+            var newPos = new Vector3(x, -0.10f, z);
+            transform.transform.GetChild(i).localPosition = newPos;
+        }
+    }
+
+    private void Update()
+    {
+        FormatStickman();
     }
 }

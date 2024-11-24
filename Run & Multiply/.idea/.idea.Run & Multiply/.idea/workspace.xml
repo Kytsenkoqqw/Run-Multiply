@@ -54,6 +54,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Road/RoadMove.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/CharacterBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyManager.cs" />
       </list>
     </option>
   </component>
@@ -107,6 +108,7 @@
       <workItem from="1732206496959" duration="130000" />
       <workItem from="1732206653494" duration="2590000" />
       <workItem from="1732367080612" duration="946000" />
+      <workItem from="1732464018203" duration="1515000" />
     </task>
     <servers />
   </component>
