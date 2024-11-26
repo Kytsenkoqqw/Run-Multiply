@@ -3,15 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class PlayerManager : MonoBehaviour
 {
     public Transform PlayerTransform;
     public int _numberOfStickmans;
+    [SerializeField] private CharacterBehaviour _characterBehaviour;
     [SerializeField] private TextMeshPro _counterText;
     [SerializeField] private GameObject _stickman;
     [Range(0, 1f)][SerializeField] private float  DistanceFactor, Radius;
-    
+
+
     private void Start()
     {
         PlayerTransform = transform;
@@ -63,6 +66,13 @@ public class PlayerManager : MonoBehaviour
             {
                 MakeStickman(_numberOfStickmans * gateManager.RandomNumber);
             }
+        }
+
+        if (other.CompareTag("enemyZone"))
+        {
+            Debug.Log("Enemy");
+            _characterBehaviour._enemyTransform = other.transform;
+            _characterBehaviour._isAttack = true;
         }
     }
     

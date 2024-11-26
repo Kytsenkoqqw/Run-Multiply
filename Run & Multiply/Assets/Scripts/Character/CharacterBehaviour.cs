@@ -4,16 +4,20 @@ using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
 using Plane = UnityEngine.Plane;
+using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
 public class CharacterBehaviour : MonoBehaviour
 {
+    public Transform _enemyTransform;
     public bool _isMoveByTouch, _isGameState;
     private Vector3 _mouseStartPosition, _playerStartPosition;
     public float MoveSpeed;
     private Camera _camera;
     [SerializeField] private PlayerManager _playerManager;
     
+    
+    public bool _isAttack;
 
     private void Start()
     {
@@ -22,7 +26,16 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void Update()
     {
-        MoveToPlayer();
+        if (_isAttack)
+        {
+            var enemyDirection = new Vector3(_enemyTransform.position.x, transform.position.y, _enemyTransform.position.z) - transform.position;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(enemyDirection, Vector3.up), Time.deltaTime *3f);
+        }
+        else
+        {
+            MoveToPlayer();
+        }
+        
     }
 
     private void MoveToPlayer()

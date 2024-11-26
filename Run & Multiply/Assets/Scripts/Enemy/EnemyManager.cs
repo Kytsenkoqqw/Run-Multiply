@@ -20,7 +20,7 @@ public class EnemyManager : MonoBehaviour
             Instantiate(_stickman, transform.position, new Quaternion(0f, 180f, 0f, 1f), transform);
         }
 
-        _counterText.text = (transform.childCount - 1).ToString();
+        _counterText.text =  (transform.childCount - 1).ToString();
         
         FormatStickman();
     }
@@ -33,12 +33,13 @@ public class EnemyManager : MonoBehaviour
             var z = _distanceFactor * Mathf.Sqrt(i) * Mathf.Sin(i * _radius);
          
             var newPos = new Vector3(x, -0.10f, z);
-            transform.transform.GetChild(i).localPosition = newPos;
+            transform.GetChild(i).localPosition = newPos;
         }
     }
 
+    /*
     private void Update()
     {
         FormatStickman();
-    }
+    }*/
 }

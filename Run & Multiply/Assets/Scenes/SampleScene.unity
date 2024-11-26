@@ -1037,7 +1037,7 @@ GameObject:
   - component: {fileID: 1137389711}
   m_Layer: 0
   m_Name: EventSystem
-  m_TagString: Untagged
+  m_TagString: enemyZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1926,7 +1926,7 @@ GameObject:
   - component: {fileID: 2067145809}
   m_Layer: 0
   m_Name: EnemyZone
-  m_TagString: Untagged
+  m_TagString: enemyZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1963,11 +1963,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.7, y: 1.7, z: 0.20000005}
+  m_Size: {x: 1.7, y: 1.7, z: 1.7}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &2067145810
 SpriteRenderer:
@@ -2125,7 +2125,7 @@ PrefabInstance:
     - target: {fileID: 3828502779747590382, guid: 7282b5f47fca2ed4abe9222d58996020,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -24
+      value: -23.56
       objectReference: {fileID: 0}
     - target: {fileID: 3828502779747590382, guid: 7282b5f47fca2ed4abe9222d58996020,
         type: 3}
@@ -2165,12 +2165,23 @@ PrefabInstance:
     - target: {fileID: 5752758157255652978, guid: 7282b5f47fca2ed4abe9222d58996020,
         type: 3}
       propertyPath: Radius
-      value: 0.736
+      value: 0.855
       objectReference: {fileID: 0}
     - target: {fileID: 5752758157255652978, guid: 7282b5f47fca2ed4abe9222d58996020,
         type: 3}
       propertyPath: DistanceFactor
-      value: 0.447
+      value: 0.588
+      objectReference: {fileID: 0}
+    - target: {fileID: 5752758157255652978, guid: 7282b5f47fca2ed4abe9222d58996020,
+        type: 3}
+      propertyPath: _characterBehaviour
+      value: 
+      objectReference: {fileID: 8070278070474959989, guid: 7282b5f47fca2ed4abe9222d58996020,
+        type: 3}
+    - target: {fileID: 8070278070474959989, guid: 7282b5f47fca2ed4abe9222d58996020,
+        type: 3}
+      propertyPath: _enemyTransform
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
