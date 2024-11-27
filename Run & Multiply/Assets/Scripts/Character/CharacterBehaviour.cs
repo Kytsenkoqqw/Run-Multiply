@@ -2,18 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Events;
 using Plane = UnityEngine.Plane;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
 public class CharacterBehaviour : MonoBehaviour
 {
-    public Transform _enemyTransform;
+    public UnityEvent Fight;
     public bool _isMoveByTouch, _isGameState;
     private Vector3 _mouseStartPosition, _playerStartPosition;
     public float MoveSpeed;
     private Camera _camera;
+    [SerializeField] private Transform _enemyTransform;
     [SerializeField] private PlayerManager _playerManager;
     
     
@@ -28,8 +31,14 @@ public class CharacterBehaviour : MonoBehaviour
     {
         if (_isAttack)
         {
+            Fight?.Invoke();
             var enemyDirection = new Vector3(_enemyTransform.position.x, transform.position.y, _enemyTransform.position.z) - transform.position;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(enemyDirection, Vector3.up), Time.deltaTime *3f);
+            
+            for (int i = 1; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).rotation = Quaternion.Slerp(transform.GetChild(i).rotation, quaternion.LookRotation(enemyDirection, Vector3.up),Time.deltaTime * 3f);
+            }
+            
         }
         else
         {
@@ -85,5 +94,12 @@ public class CharacterBehaviour : MonoBehaviour
         }
     }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("enemyZone"))
+        {
+            _enemyTransform = other.transform;
+            _isAttack = true;
+        }
+    }
 }

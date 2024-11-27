@@ -49,11 +49,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/CharacterMultily.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gate/GateManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Road/RoadMove.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/CharacterMultiply.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Character/CharacterBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Character/CharacterBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Road/RoadMove.cs" />
       </list>
     </option>
   </component>
@@ -109,7 +109,8 @@
       <workItem from="1732367080612" duration="946000" />
       <workItem from="1732464018203" duration="3021000" />
       <workItem from="1732625219089" duration="295000" />
-      <workItem from="1732640901737" duration="4200000" />
+      <workItem from="1732640901737" duration="4773000" />
+      <workItem from="1732706837932" duration="2064000" />
     </task>
     <servers />
   </component>
