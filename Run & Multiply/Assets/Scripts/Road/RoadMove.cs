@@ -8,31 +8,30 @@ public class RoadMove : MonoBehaviour
     [SerializeField] private Transform _roadTransform;
     [SerializeField] private float _roadSpeed;
     [SerializeField] private CharacterBehaviour _characterBehaviour;
-    private bool _isMoveRoad;
+    [SerializeField] private bool _isMoveRoad;
 
-    private void Start()
+    private void Awake()
     {
         _characterBehaviour.Fight.AddListener(StopMoveRoad);
+        _isMoveRoad = true;
     }
 
     private void Update()
     {
-        MoveRoad();
+        if (_isMoveRoad && _characterBehaviour._isGameState)
+        {
+            MoveRoad();
+        }
     }
 
     private void MoveRoad()
     {
-        if (_characterBehaviour._isGameState)
-        {
-            _isMoveRoad = true;
-            _roadTransform.Translate(_roadTransform.forward * Time.deltaTime * _roadSpeed);
-        }
+        _roadTransform.Translate(_roadTransform.forward * Time.deltaTime * _roadSpeed);
     }
 
     private void StopMoveRoad()
     {
         _isMoveRoad = false;
-        _roadSpeed = 0f;
     }
 
     private void OnDisable()

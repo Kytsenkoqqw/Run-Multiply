@@ -123,3 +123,4 @@ MonoBehaviour:
   _roadSpeed: 2
   _characterBehaviour: {fileID: 8070278070474959989, guid: 7282b5f47fca2ed4abe9222d58996020,
     type: 3}
+  _isMoveRoad: 0

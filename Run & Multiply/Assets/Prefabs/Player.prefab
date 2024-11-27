@@ -152,7 +152,9 @@ MonoBehaviour:
   _isMoveByTouch: 0
   _isGameState: 1
   MoveSpeed: 3
+  _enemyTransform: {fileID: 0}
   _playerManager: {fileID: 5752758157255652978}
+  _isAttack: 0
 --- !u!114 &5752758157255652978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,8 +171,8 @@ MonoBehaviour:
   _numberOfStickmans: 0
   _counterText: {fileID: 3251401868414489553}
   _stickman: {fileID: 60926425580469565, guid: c96c7490f41a1f1429464081df7408c7, type: 3}
-  DistanceFactor: 0.5
-  Radius: 1
+  DistanceFactor: 0.588
+  Radius: 0.855
 --- !u!1 &2420778991833310632
 GameObject:
   m_ObjectHideFlags: 0

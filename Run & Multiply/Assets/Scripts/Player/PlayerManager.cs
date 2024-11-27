@@ -77,15 +77,13 @@ public class PlayerManager : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / duration;
-
-            // Добавляем easing (аналог Ease.OutBack)
+            
             t = EaseOutBack(t);
 
             child.localPosition = Vector3.Lerp(startPosition, targetPosition, t);
             yield return null;
         }
-
-        // Убедимся, что объект точно в целевой позиции
+        
         child.localPosition = targetPosition;
     }
     

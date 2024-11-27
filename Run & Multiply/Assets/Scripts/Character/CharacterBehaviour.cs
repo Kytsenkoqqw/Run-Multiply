@@ -31,7 +31,6 @@ public class CharacterBehaviour : MonoBehaviour
     {
         if (_isAttack)
         {
-            Fight?.Invoke();
             var enemyDirection = new Vector3(_enemyTransform.position.x, transform.position.y, _enemyTransform.position.z) - transform.position;
             
             for (int i = 1; i < transform.childCount; i++)
@@ -98,6 +97,8 @@ public class CharacterBehaviour : MonoBehaviour
     {
         if (other.CompareTag("enemyZone"))
         {
+            Fight?.Invoke();
+            Debug.Log("EnemyZone");
             _enemyTransform = other.transform;
             _isAttack = true;
         }
