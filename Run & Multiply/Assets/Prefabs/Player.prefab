@@ -149,11 +149,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3837a65c2be1c4b93dc182309e5afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Fight:
+    m_PersistentCalls:
+      m_Calls: []
   _isMoveByTouch: 0
   _isGameState: 1
   MoveSpeed: 3
   _enemyTransform: {fileID: 0}
   _playerManager: {fileID: 5752758157255652978}
+  _roadMove: {fileID: 2690118151319923164, guid: 0b6d27c9b4ca492438957c85786d6da5,
+    type: 3}
   _isAttack: 0
 --- !u!114 &5752758157255652978
 MonoBehaviour:

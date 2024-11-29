@@ -26,6 +26,9 @@
           <e p="Road" t="Include">
             <e p="RoadMove.cs" t="Include" />
           </e>
+          <e p="Stickman" t="Include">
+            <e p="StickmanManager.cs" t="Include" />
+          </e>
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">

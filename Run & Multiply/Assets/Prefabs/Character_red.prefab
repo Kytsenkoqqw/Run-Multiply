@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4658962980497052895}
   - component: {fileID: 475333675666077132}
   m_Layer: 0
-  m_Name: Character
-  m_TagString: Untagged
+  m_Name: Character_red
+  m_TagString: red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 60926425580469565}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.33608437, y: 0.95, z: -24.802956}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b197fada68821d4458ee69d3f482e9d2, type: 2}
+  - {fileID: 2100000, guid: 9b00de397ca074340bab1370c2dfb112, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

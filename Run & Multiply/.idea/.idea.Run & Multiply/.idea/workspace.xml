@@ -39,6 +39,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Road/RoadMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Stickman/StickmanManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gate/GateManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
@@ -50,8 +51,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/CharacterMultily.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Gate/GateManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/CharacterMultiply.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Stickman/StickmanManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/CharacterBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Road/RoadMove.cs" />
       </list>
@@ -111,7 +113,9 @@
       <workItem from="1732625219089" duration="295000" />
       <workItem from="1732640901737" duration="4773000" />
       <workItem from="1732706837932" duration="2947000" />
-      <workItem from="1732729557794" duration="1824000" />
+      <workItem from="1732729557794" duration="4605000" />
+      <workItem from="1732904048994" duration="5547000" />
+      <workItem from="1732909792064" duration="1591000" />
     </task>
     <servers />
   </component>

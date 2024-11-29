@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 public class EnemyManager : MonoBehaviour
@@ -13,6 +14,9 @@ public class EnemyManager : MonoBehaviour
     [Range(0f, 1f)] [SerializeField]
     private float _distanceFactor, _radius;
 
+    public Transform enemyTransform;
+    public bool IsEnemyAttack;
+    
     private void Start()
     {
         for (int i = 0; i < UnityEngine.Random.Range(20,120); i++)
@@ -24,7 +28,29 @@ public class EnemyManager : MonoBehaviour
         
         FormatStickman();
     }
-    
+
+    private void Update()
+    {
+        if (IsEnemyAttack && transform.childCount > 1)
+        {
+            var enemyPos = new Vector3(enemyTransform.position.x, transform.position.y, enemyTransform.position.z);
+            var enemyDirection = enemyTransform.position - transform.position;
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(1).rotation = Quaternion.Slerp(transform.GetChild(i).rotation,
+                    Quaternion.LookRotation(enemyDirection, Vector3.up), Time.deltaTime * 3f);
+
+                var distance = enemyTransform.GetChild(1).position - transform.GetChild(i).position;
+
+                if (distance.magnitude < 8f)
+                {
+                    transform.GetChild(i).position = Vector3.Lerp(transform.GetChild(i).position, enemyTransform.GetChild(1).position, Time.deltaTime * 2f);
+                }
+            }
+        }
+    }
+
     private void FormatStickman()
     {
         for (int i = 0; i < transform.childCount; i++)
@@ -37,9 +63,10 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    /*
-    private void Update()
+    public void Attack(Transform enemyForce)
     {
-        FormatStickman();
-    }*/
+        Debug.Log("attack");
+        enemyTransform = enemyForce;
+        IsEnemyAttack = true;
+    }
 }

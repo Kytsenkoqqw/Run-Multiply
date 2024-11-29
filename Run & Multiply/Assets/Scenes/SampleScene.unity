@@ -729,9 +729,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _counterText: {fileID: 511769831}
-  _stickman: {fileID: 60926425580469565, guid: c96c7490f41a1f1429464081df7408c7, type: 3}
+  _stickman: {fileID: 60926425580469565, guid: 364f6bd7d80cdd04695fdf1e857f8cae, type: 3}
   _distanceFactor: 0.447
   _radius: 0.736
+  enemyTransform: {fileID: 0}
+  IsEnemyAttack: 0
 --- !u!23 &1044503068
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1913,6 +1915,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1373142462}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1955749004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8070278070474959989, guid: 7282b5f47fca2ed4abe9222d58996020,
+    type: 3}
+  m_PrefabInstance: {fileID: 5742230458071600071}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b3837a65c2be1c4b93dc182309e5afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2067145807
 GameObject:
   m_ObjectHideFlags: 0
@@ -2107,11 +2121,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3728431632010255132, guid: 7282b5f47fca2ed4abe9222d58996020,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3828502779747590382, guid: 7282b5f47fca2ed4abe9222d58996020,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2162,32 +2171,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5752758157255652978, guid: 7282b5f47fca2ed4abe9222d58996020,
-        type: 3}
-      propertyPath: Radius
-      value: 0.855
-      objectReference: {fileID: 0}
-    - target: {fileID: 5752758157255652978, guid: 7282b5f47fca2ed4abe9222d58996020,
-        type: 3}
-      propertyPath: DistanceFactor
-      value: 0.588
-      objectReference: {fileID: 0}
-    - target: {fileID: 5752758157255652978, guid: 7282b5f47fca2ed4abe9222d58996020,
-        type: 3}
-      propertyPath: _characterBehaviour
-      value: 
-      objectReference: {fileID: 8070278070474959989, guid: 7282b5f47fca2ed4abe9222d58996020,
-        type: 3}
-    - target: {fileID: 8070278070474959989, guid: 7282b5f47fca2ed4abe9222d58996020,
-        type: 3}
-      propertyPath: _isAttack
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070278070474959989, guid: 7282b5f47fca2ed4abe9222d58996020,
-        type: 3}
-      propertyPath: _enemyTransform
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2215,6 +2198,11 @@ PrefabInstance:
       propertyPath: _roadSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2690118151319923164, guid: 0b6d27c9b4ca492438957c85786d6da5,
+        type: 3}
+      propertyPath: _characterBehaviour
+      value: 
+      objectReference: {fileID: 1955749004}
     - target: {fileID: 3395316555474677732, guid: 0b6d27c9b4ca492438957c85786d6da5,
         type: 3}
       propertyPath: m_LocalPosition.x

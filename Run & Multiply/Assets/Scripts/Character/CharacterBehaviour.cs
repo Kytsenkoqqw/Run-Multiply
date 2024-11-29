@@ -11,13 +11,14 @@ using Vector3 = UnityEngine.Vector3;
 
 public class CharacterBehaviour : MonoBehaviour
 {
-    public UnityEvent Fight;
     public bool _isMoveByTouch, _isGameState;
     private Vector3 _mouseStartPosition, _playerStartPosition;
     public float MoveSpeed;
     private Camera _camera;
     [SerializeField] private Transform _enemyTransform;
     [SerializeField] private PlayerManager _playerManager;
+    [SerializeField] private RoadMove _roadMove;
+    
     
     
     public bool _isAttack;
@@ -37,12 +38,35 @@ public class CharacterBehaviour : MonoBehaviour
             {
                 transform.GetChild(i).rotation = Quaternion.Slerp(transform.GetChild(i).rotation, quaternion.LookRotation(enemyDirection, Vector3.up),Time.deltaTime * 3f);
             }
-            
+
+            if (_enemyTransform.GetChild(1).childCount > 1)
+            {
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    var Distance = _enemyTransform.GetChild(1).GetChild(0).position - transform.GetChild(i).position;
+
+                    if (Distance.magnitude < 8f)
+                    {
+                        transform.GetChild(i).position = Vector3.Lerp(transform.GetChild(i).position,
+                            new Vector3(_enemyTransform.GetChild(1).GetChild(0).position.x,
+                                transform.GetChild(i).position.y, _enemyTransform.GetChild(1).GetChild(0).position.z),
+                            Time.deltaTime * 3f);
+                    }
+                }
+            }
+
+            else
+            {
+                _isAttack = false;
+                
+            }
+              
         }
         else
         {
             MoveToPlayer();
         }
+        
         
     }
 
@@ -97,10 +121,11 @@ public class CharacterBehaviour : MonoBehaviour
     {
         if (other.CompareTag("enemyZone"))
         {
-            Fight?.Invoke();
+         
             Debug.Log("EnemyZone");
             _enemyTransform = other.transform;
             _isAttack = true;
+            other.transform.GetChild(1).GetComponent<EnemyManager>().Attack(transform);
         }
     }
 }

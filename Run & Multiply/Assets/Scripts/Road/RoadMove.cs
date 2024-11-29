@@ -5,37 +5,33 @@ using UnityEngine;
 
 public class RoadMove : MonoBehaviour
 {
+    private float _roadSpeed = 6f;
     [SerializeField] private Transform _roadTransform;
-    [SerializeField] private float _roadSpeed;
     [SerializeField] private CharacterBehaviour _characterBehaviour;
-    [SerializeField] private bool _isMoveRoad;
-
-    private void Awake()
-    {
-        _characterBehaviour.Fight.AddListener(StopMoveRoad);
-        _isMoveRoad = true;
-    }
+    
 
     private void Update()
     {
-        if (_isMoveRoad && _characterBehaviour._isGameState)
-        {
-            MoveRoad();
-        }
+        MoveRoad();
+        Debug.Log(_roadSpeed);
     }
 
     private void MoveRoad()
     {
         _roadTransform.Translate(_roadTransform.forward * Time.deltaTime * _roadSpeed);
+        if (_characterBehaviour._isAttack)
+        {
+            ChangeRoadSpeed(2f);
+        }
+        else
+        {
+            ChangeRoadSpeed(6f);
+        }
     }
 
-    private void StopMoveRoad()
+    public void ChangeRoadSpeed(float roadSpeed)
     {
-        _isMoveRoad = false;
+        _roadSpeed = roadSpeed;
     }
-
-    private void OnDisable()
-    {
-        _characterBehaviour.Fight.RemoveListener(StopMoveRoad);
-    }
+    
 }
