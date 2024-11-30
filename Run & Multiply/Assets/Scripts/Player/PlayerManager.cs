@@ -3,26 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.TextCore.Text;
 
 public class PlayerManager : MonoBehaviour
 {
     public Transform PlayerTransform;
-    public int _numberOfStickmans;
+    public int numberOfStickmans, numberOfEnemyStickman;
     [SerializeField] private TextMeshPro _counterText;
     [SerializeField] private GameObject _stickman;
+    [SerializeField] private CharacterBehaviour _characterBehaviour;
     [Range(0, 1f)][SerializeField] private float  DistanceFactor, Radius;
-
 
     private void Start()
     {
         PlayerTransform = transform;
-        _numberOfStickmans = transform.childCount - 1;
-        _counterText.text = _numberOfStickmans.ToString();
+        numberOfStickmans = transform.childCount - 1;
+        _counterText.text = numberOfStickmans.ToString();
       //  MakeStickman(90);
     }
 
-    private void FormatStickman()
+    public void FormatStickman()
     {
         for (int i = 1; i < PlayerTransform.childCount; i++)
         {
@@ -30,7 +31,7 @@ public class PlayerManager : MonoBehaviour
             var z = DistanceFactor * Mathf.Sqrt(i) * Mathf.Sin(i * Radius);
          
             var newPos = new Vector3(x, -0.10f, z);
-            StartCoroutine(MoveToPosition(PlayerTransform.GetChild(i), newPos, 1f));
+            StartCoroutine(MoveToPosition(PlayerTransform.GetChild(i), newPos, 0.5f));
         }
     }
 
@@ -41,8 +42,8 @@ public class PlayerManager : MonoBehaviour
             Instantiate(_stickman, transform.position, Quaternion.identity, transform);
         }
         
-        _numberOfStickmans = transform.childCount - 1;
-        _counterText.text = _numberOfStickmans.ToString();
+        numberOfStickmans = transform.childCount - 1;
+        _counterText.text = numberOfStickmans.ToString();
         
         FormatStickman();
     }
@@ -59,11 +60,11 @@ public class PlayerManager : MonoBehaviour
 
             if (gateManager.Multiply)
             {
-                MakeStickman(_numberOfStickmans * gateManager.RandomNumber);
+                MakeStickman(numberOfStickmans * gateManager.RandomNumber);
             }
             else
             {
-                MakeStickman(_numberOfStickmans * gateManager.RandomNumber);
+                MakeStickman(numberOfStickmans * gateManager.RandomNumber);
             }
         }
     }
@@ -93,5 +94,38 @@ public class PlayerManager : MonoBehaviour
         float c3 = c1 + 1;
 
         return 1 + c3 * Mathf.Pow(t - 1, 3) + c1 * Mathf.Pow(t - 1, 2);
+    }
+
+    public void ChangeNumbers()
+    {
+        StartCoroutine(UpdatePlayerAndEnemyStickmansNumbers());
+    }
+
+    public IEnumerator UpdatePlayerAndEnemyStickmansNumbers()
+    {
+        numberOfEnemyStickman = _characterBehaviour._enemyTransform.transform.GetChild(1).childCount - 1;
+        numberOfStickmans = transform.childCount - 1;
+
+        while (numberOfEnemyStickman > 0)
+        {
+            numberOfEnemyStickman--;
+            numberOfStickmans--;
+
+            _characterBehaviour._enemyTransform.GetChild(1).GetComponent<EnemyManager>()._counterText.text =
+                numberOfEnemyStickman.ToString();
+            _counterText.text = numberOfStickmans.ToString();
+
+            yield return null;
+        }
+
+        if (numberOfEnemyStickman == 0)
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).rotation = Quaternion.identity;
+            }
+        }
+        
+        _characterBehaviour._enemyTransform.gameObject.SetActive(false);
     }
 }

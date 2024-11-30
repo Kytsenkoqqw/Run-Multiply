@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro _counterText;
+    public TextMeshPro _counterText;
     [SerializeField] private GameObject _stickman;
     
     [Range(0f, 1f)] [SerializeField]
@@ -43,7 +43,7 @@ public class EnemyManager : MonoBehaviour
 
                 var distance = enemyTransform.GetChild(1).position - transform.GetChild(i).position;
 
-                if (distance.magnitude < 8f)
+                if (distance.magnitude < 7f)
                 {
                     transform.GetChild(i).position = Vector3.Lerp(transform.GetChild(i).position, enemyTransform.GetChild(1).position, Time.deltaTime * 2f);
                 }

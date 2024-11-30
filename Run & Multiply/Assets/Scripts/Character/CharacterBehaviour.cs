@@ -14,8 +14,8 @@ public class CharacterBehaviour : MonoBehaviour
     public bool _isMoveByTouch, _isGameState;
     private Vector3 _mouseStartPosition, _playerStartPosition;
     public float MoveSpeed;
-    private Camera _camera;
-    [SerializeField] private Transform _enemyTransform;
+    private Camera _camera; 
+    public Transform _enemyTransform;
     [SerializeField] private PlayerManager _playerManager;
     [SerializeField] private RoadMove _roadMove;
     
@@ -45,7 +45,7 @@ public class CharacterBehaviour : MonoBehaviour
                 {
                     var Distance = _enemyTransform.GetChild(1).GetChild(0).position - transform.GetChild(i).position;
 
-                    if (Distance.magnitude < 8f)
+                    if (Distance.magnitude < 7f)
                     {
                         transform.GetChild(i).position = Vector3.Lerp(transform.GetChild(i).position,
                             new Vector3(_enemyTransform.GetChild(1).GetChild(0).position.x,
@@ -58,7 +58,13 @@ public class CharacterBehaviour : MonoBehaviour
             else
             {
                 _isAttack = false;
+
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    transform.GetChild(i).rotation = Quaternion.Slerp(transform.GetChild(i).rotation, Quaternion.identity, Time.deltaTime * 2f);
+                }
                 
+                _playerManager.FormatStickman();
             }
               
         }
@@ -103,7 +109,7 @@ public class CharacterBehaviour : MonoBehaviour
                 var move = mousePos - _mouseStartPosition;
                 var control = _playerStartPosition + move;
 
-                if (_playerManager._numberOfStickmans > 50)
+                if (_playerManager.numberOfStickmans > 50)
                 {
                     control.x = Mathf.Clamp(control.x, -5f, 5f);
                 }
@@ -126,6 +132,10 @@ public class CharacterBehaviour : MonoBehaviour
             _enemyTransform = other.transform;
             _isAttack = true;
             other.transform.GetChild(1).GetComponent<EnemyManager>().Attack(transform);
+            _playerManager.ChangeNumbers();
+            
         }
     }
+
+    
 }

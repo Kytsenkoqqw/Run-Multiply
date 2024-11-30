@@ -149,9 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3837a65c2be1c4b93dc182309e5afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fight:
-    m_PersistentCalls:
-      m_Calls: []
   _isMoveByTouch: 0
   _isGameState: 1
   MoveSpeed: 3
@@ -360,7 +357,6 @@ GameObject:
   - component: {fileID: 6067751016253592667}
   - component: {fileID: 2789507913815800393}
   - component: {fileID: 9096601920239903120}
-  - component: {fileID: 3728431632010255132}
   m_Layer: 0
   m_Name: Counter_Label
   m_TagString: Untagged
@@ -434,28 +430,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3728431632010255132
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7673325563062218852}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &9172045545305408066
 PrefabInstance:
   m_ObjectHideFlags: 0
