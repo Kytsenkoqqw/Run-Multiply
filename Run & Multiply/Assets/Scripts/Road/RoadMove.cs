@@ -13,7 +13,6 @@ public class RoadMove : MonoBehaviour
     private void Update()
     {
         MoveRoad();
-        Debug.Log(_roadSpeed);
     }
 
     private void MoveRoad()

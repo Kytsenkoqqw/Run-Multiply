@@ -45,7 +45,7 @@ public class CharacterBehaviour : MonoBehaviour
                 {
                     var Distance = _enemyTransform.GetChild(1).GetChild(0).position - transform.GetChild(i).position;
 
-                    if (Distance.magnitude < 7f)
+                    if (Distance.magnitude < 9f)
                     {
                         transform.GetChild(i).position = Vector3.Lerp(transform.GetChild(i).position,
                             new Vector3(_enemyTransform.GetChild(1).GetChild(0).position.x,

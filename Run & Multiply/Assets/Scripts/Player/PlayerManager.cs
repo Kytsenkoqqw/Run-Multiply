@@ -76,16 +76,22 @@ public class PlayerManager : MonoBehaviour
 
         while (elapsedTime < duration)
         {
+            if (child == null)
+                yield break;
+            
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / duration;
             
             t = EaseOutBack(t);
 
             child.localPosition = Vector3.Lerp(startPosition, targetPosition, t);
+
             yield return null;
         }
-        
-        child.localPosition = targetPosition;
+
+        if (child != null)
+            child.localPosition = targetPosition;
+
     }
     
     private float EaseOutBack(float t)
@@ -101,8 +107,12 @@ public class PlayerManager : MonoBehaviour
         StartCoroutine(UpdatePlayerAndEnemyStickmansNumbers());
     }
 
-    public IEnumerator UpdatePlayerAndEnemyStickmansNumbers()
+    private IEnumerator UpdatePlayerAndEnemyStickmansNumbers()
     {
+        if (_characterBehaviour._enemyTransform == null || _characterBehaviour._enemyTransform.GetChild(1) == null)
+            yield break;
+        
+        
         numberOfEnemyStickman = _characterBehaviour._enemyTransform.transform.GetChild(1).childCount - 1;
         numberOfStickmans = transform.childCount - 1;
 
@@ -114,12 +124,17 @@ public class PlayerManager : MonoBehaviour
             _characterBehaviour._enemyTransform.GetChild(1).GetComponent<EnemyManager>()._counterText.text =
                 numberOfEnemyStickman.ToString();
             _counterText.text = numberOfStickmans.ToString();
-
+            
             yield return null;
+            
         }
 
         if (numberOfEnemyStickman == 0)
         {
+            if (transform == null)
+            {
+                yield break;
+            }
             for (int i = 0; i < transform.childCount; i++)
             {
                 transform.GetChild(i).rotation = Quaternion.identity;
